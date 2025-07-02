@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../global/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Página - Módulo I - Primeiros Passos com HTML</title>
+</head>
+<body>
+    <header class="center over">
+        <img src="../../global/icons/dio.svg" alt="Logo DIO">
+    </header>
+    <nav class="center over">
+        <ul class="center over">
+            <li><a href="#history">História dos computadores</a></li>
+            <li><a href="#client">O que são <i>Clients</i>?</a></li>
+            <li><a href="#server">O que são <i>Servers</i>?</a></li>
+            <li><a href="#html">Estrutura básica de um HTML</a></li>
+            <li><a href="#list">Listas ordenadas e não ordenadas</a></li>
+            <li><a href="#ref">Referências</a></li>
+        </ul>
+    </nav>
+    <main class="center over">
+        <h2 id="history" class="title">História dos computadores</h2>
+        <p>A história dos computadores começou a partir da década de 1940, quando os computadores pesavam toneladas. Os primeiros a serem desenvolvidos foram o <strong>ENIAC</strong> e o <strong>UNIVAC</strong>, máquinas enormes, do tamanho de salas inteiras. O objetivo era realizar cálculos rápidos e precisos, já que esses computadores estavam sendo utilizados na guerra.
+            A partir daí, os computadores começaram a diminuir tanto em peso quanto em tamanho. Com essa evolução, surgiram os Personal Computers (os famosos PCs). O primeiro computador comercializado pela Apple foi o <strong>Apple II</strong>, e o primeiro com interface gráfica também foi da Apple: o famoso <strong>Macintosh</strong>.
+            E com tudo isso, a tecnologia foi evoluindo até chegarmos aos dias atuais — e o resto você já sabe.
+        </p>
+
+        <h2 class="title" id="client">O que são <i>Clients</i>?</h2>
+        <p>Clients (ou clientes) são os dispositivos ou softwares que consomem serviços de um servidor. Em desenvolvimento web, o client é geralmente o navegador (Chrome, Firefox, etc.), que faz requisições e exibe o conteúdo de um site.
+            Exemplos de Clients:
+            <ul>
+                <li>Um navegador acessando uma página web</li>
+                <li>Um aplicativo mobile puxando dados de uma API</li>
+                <li>Um software de e-mail recebendo mensagens do servidor</li>
+            </ul>
+        </p>
+
+        <h2 class="title" id="server">O que são <i>Servers</i>?</h2>
+        <p>Servers (ou servidores) são computadores ou sistemas que fornecem serviços, dados ou recursos para outros dispositivos, chamados de clients.
+            <br><br><span>Em um site, por exemplo</span>
+            <ul>
+                <li>O servidor guarda os arquivos (HTML, imagens, banco de dados...)</li>
+                <li>Quando um client (como o navegador) faz uma requisição, o servidor responde com o conteúdo</li>
+            </ul>
+            <span>Exemplos de Servers</span>
+            <ul>
+                <li>Servidor Web → envia páginas (ex: Apache, Nginx)</li>
+                <li>Servidor de Banco de Dados → responde consultas (ex: MySQL, PostgreSQL)</li>
+                <li>Servidor de Arquivos → armazena e distribui arquivos</li>
+                <li>Servidor de Aplicação → executa lógica de negócios (ex: Node.js, Django)</li>
+            </ul>
+        </p>
+       
+        <h2 class="title" id="html">Como é uma estrutura básica de um HTML?</h2>
+        <p>A estrutura básica de um HTML começa com a declaração <!DOCTYPE html>, que informa ao navegador que o documento está usando HTML5. Em seguida, temos a tag <html>, que é o elemento raiz de toda a página. Dentro dela, existem duas partes principais: o 
+            <head> e o <body>. O <head> contém informações sobre a página, como o título (&lt;title&gt;), a codificação de caracteres (&lt;meta charset="UTF-8"&gt;) e configurações para dispositivos móveis (&lt;meta viewport&gt;). Já o &lt;body&gt; é onde fica o 
+            conteúdo visível da página, como textos, imagens, links e tudo o que o usuário vê.
+        </p>
+
+        <h2 class="title" id="list">Entendendo a diferença entre listas ordenadas e não ordenadas</h2>
+        <p>Listas ordenadas têm itens com uma ordem numérica ou alfabética (como 1, 2, 3), usando a tag &lt;ol&gt;.</p>
+            <blockquote>
+                <ol>
+                    <li>Texte</li>
+                    <li>Texte</li>
+                    <li>Texte</li>
+                </ol>
+            </blockquote>
+            <p>Já listas não ordenadas usam marcadores (bolinhas, por padrão) e a tag &lt;ul&gt;.</p>
+            <blockquote>
+                <ul>
+                    <li>Texte</li>
+                    <li>Texte</li>
+                    <li>Texte</li>
+                </ul>
+            </blockquote>
+        <h2 class="title" id="ref">Links de referências</h2>
+        <ul>
+            <li><a href="https://www.dio.me/">DIO.me</a></li>
+            <li><a href="https://www.w3schools.com/html/html_lists.asp?" target="_blank">W3schools</a></li>
+        </ul>
+    </main>
+</body>
+</html>
