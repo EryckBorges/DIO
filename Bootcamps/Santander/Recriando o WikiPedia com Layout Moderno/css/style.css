@@ -1,0 +1,61 @@
+:root {
+    --gray: rgb(219, 219, 219);
+}
+
+header {
+    height:15vh;
+    justify-content: left !important;
+    background: var(--gray);
+}
+
+.logo {
+    margin-inline: 10px;
+    width: 100px;
+    height: 100%;
+}
+
+.logo > img {
+    height: 80%;
+    width: auto;
+    object-fit: cover;
+}
+
+main {
+    margin-block: 20px;
+    height: auto;
+    border: 1px solid var(--black);
+    align-items: baseline !important;
+}
+
+.temas, .ancoras {
+    width: 25%;
+    height: auto;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 10px;
+}
+
+.contMain {
+    padding: 10px 10px;
+    height: auto;
+    gap: 10px;
+    width: 50%;
+    border-left: 1px solid var(--black);
+    border-right: 1px solid var(--black);
+    flex-direction: column;
+}
+
+.temas > a {
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.ancoras > h1 {
+    background-color: #ccccff;
+    padding: 5px 25px;
+}
+
+figure {
+    flex-direction: column;
+    gap: 10px;
+}
