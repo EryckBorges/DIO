@@ -1,0 +1,381 @@
+header {
+    height: 20vh;
+    flex-direction: column;
+    position: relative;
+}
+
+main {
+    height: auto;
+    flex-direction: column !important;
+}
+
+.pokeballHeader {
+    height: 60%;
+    align-items: baseline !important;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+}
+
+.pokeballHeader > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.btnHeader {
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+}
+
+.btnMenu, .btnSearch {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    color: var(--preto);
+}
+
+.btnMenu > span, .btnSearch > span {
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.btnMenu {
+    left: 4vw;
+}
+
+.btnSearch {
+    right: 4vw;
+}
+
+.inputSearch {
+    border: 1px solid var(--preto);
+    border-radius: 20px;
+    min-height: 40%;
+    min-width: 60%;
+}
+
+/* Cards Pokemon */
+
+.pokemons {
+    width: 95%;
+    height: auto;
+}
+
+.linePokemon {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    display: grid !important;
+    padding: 0px 10px;
+    width: 95%;
+}
+
+.cardPokemon {
+    width: 100%;
+    height: 20vh;
+    border-radius: 20px;
+    padding: 10px 6px;
+    flex-direction: column;
+}
+
+.dados {
+    height: 20%;
+    font-size: 0.8em;
+    color: var(--branco);
+    font-weight: bold;
+    position: relative;
+}
+
+.name, .id {
+    position: absolute;
+    height: auto;
+    padding: 5px 5px;
+}
+
+.name {
+    left: 0vw;
+}
+
+.id {
+    right: 0vw;
+}
+
+.contentPokemon {
+    height: 80%;
+    position: relative;
+}
+
+.types {
+    padding: 6px 2px;
+    align-items: baseline !important;
+    justify-content: left !important;
+    width: 40%;
+    gap: 5px;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    flex-direction: column;
+}
+
+.types > span {
+    font-size: 0.6em;
+    text-align: center;
+    padding: 6px 6px;
+    border-radius: 20px;
+    color: var(--branco);
+}
+
+.pokemon {
+    width: 60%;
+    position:absolute;
+    right: 0;
+    z-index: 3;
+}
+
+.pokemon > img {
+    object-fit: cover;
+    width: 110%;
+    height: 110%;
+}
+
+.buttonMore {
+    margin-block: 20px;
+    width: 85%;
+    height: 50px;
+    padding: 5px 5px;
+    border-radius: 50px;
+    background: var(--vermelho);
+    color: var(--branco);
+    font-size: 1.2em;
+    font-weight: bold;
+    position: relative;
+    transition: 0.3s linear;
+}
+
+.buttonMore > img {
+    object-fit: cover;
+    width: auto;
+    height: 90%;
+    position: absolute;
+    left: 1vw;
+}
+
+.buttonMore:hover {
+    background: var(--preto);
+    transition: 0.3s linear;
+}
+
+.buttonMore.rotateAnimation > img {
+    rotate: 0deg;
+    animation: rotateAnimation 1s infinite linear;
+}
+
+/* Filters */
+
+.filters {
+    width: 90%;
+    height: auto;
+    background-color: var(--cinza);
+    padding: 10px 10px;
+    border-radius: 50px;
+    margin-block: 20px;
+    flex-direction: column;
+}
+
+select {
+    padding: 5px 5px;
+    border-radius: 50px;
+}
+
+.filter {
+    width: 95%;
+    height: auto;
+    padding: 10px 5px;
+    gap: 10px;
+}
+
+.filter > div > span {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.column {
+    gap: 5px;
+    align-items: baseline !important;
+    flex-direction: column;
+    width: 50%;
+}
+
+/* Detalhes do pokemon */
+
+.detailsPokemon {
+    position: fixed;
+    top: 0;
+    flex-direction: column;
+    display: none;
+}
+
+.pokemonDados {
+    align-items: baseline !important;
+    height: 40%;
+    flex-direction: column;
+    position: relative;
+}
+
+.backgroundPokemon {
+    height: 90%;
+    align-items: baseline !important;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+}
+
+.namePokemon {
+    height: 30%;
+    top: 0;
+    position: absolute;
+}
+
+.namePokemon > h1 {
+    font-size: 1.8em;
+    color: var(--branco);
+}
+
+.nextPokemon, .backPokemon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+.nextPokemon {
+    right: 2vw;
+}
+
+.backPokemon {
+    left: 2vw;
+}
+
+.pokedexDados {
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    justify-content: left !important;
+    padding-inline: 10px;
+    font-weight: bold;
+    color: var(--branco);
+}
+
+.pokemonImage {
+    height: auto;
+    position: absolute;
+    bottom: 0;
+}
+
+.pokemonImage > img {
+    object-fit: cover;
+    width: 30%;
+}
+
+/* Parte onde contém todos os detalhes do pokemon */
+
+.dadosPokemon {
+    margin-top: 30px;
+    height: 70%;
+    width: 100%;
+    background-color: var(--branco);
+    justify-content: left !important;
+}
+
+.heightPokemon, .weight, .typesDetails {
+    width: 35%;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.typesDetails {
+    flex-direction: row;
+    border-left: 1px solid var(--cinzaText);
+    border-right: 1px solid var(--cinzaText);
+}
+
+.typesDetails > .type > img {
+    width: 30px;
+    height: 30px;
+}
+
+.type {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.topics, .mov {
+    height: auto;
+    padding: 10px 0px;
+    padding-inline: 10px;
+    gap: 10px;
+    font-weight: bold;
+    color: var(--cinzaText);
+}
+
+.topics > div {
+    cursor: pointer;
+}
+
+.topics > div.active {
+    background: var(--cinza);
+    padding: 5px 8px;
+    border-radius: 20px;
+    color: var(--preto);
+}
+
+.desc {
+    margin-top: 10px;
+    height: auto;
+    padding-inline: 10px;
+    gap: 10px;
+}
+
+.desc > h1, .mov > h1 {
+    color: var(--cinzaText);
+    font-size: 1.2em;
+}
+
+.desc > p {
+    font-size: 1em;
+}
+
+.mov {
+    height: 50%;
+    justify-content: left !important; 
+}
+
+.movs {
+    height: auto;
+    display: grid;
+    overflow-y: scroll;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr); 
+}
+
+.movs > span {
+    padding: 5px 6px;
+    background: var(--cinza);
+    border-radius: 50px;
+}
+
+.actived {
+    display: flex;
+}
+
+/* Animações */
+
+@keyframes rotateAnimation {
+    from {
+        rotate: 0;
+    } to {
+        rotate: 360deg;
+    }
+}

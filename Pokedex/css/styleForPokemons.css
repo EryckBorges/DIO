@@ -1,0 +1,220 @@
+
+/* Estilos de fundo para todos os tipos */
+
+.cardPokemon.grass {
+    background: var(--grass);
+}
+
+.cardPokemon.fire {
+    background: var(--fire);
+}
+
+.cardPokemon.water {
+    background: var(--water);
+}
+
+.cardPokemon.bug {
+    background: var(--bug);
+}
+
+.cardPokemon.fairy {
+    background: var(--fairy);
+}
+
+.cardPokemon.normal {
+    background: var(--normal);
+}
+
+.cardPokemon.dragon {
+    background: var(--dragon);
+}
+
+.cardPokemon.psychic {
+    background: var(--psychic);
+}
+
+.cardPokemon.ghost {
+    background: var(--ghost);
+}
+
+.cardPokemon.steel {
+    background: var(--steel);
+}
+
+.cardPokemon.flying {
+    background: var(--flying);
+}
+
+.cardPokemon.ice {
+    background: var(--ice);
+}
+
+.cardPokemon.electric {
+    background: var(--electric);
+}
+
+.cardPokemon.dark {
+    background: var(--dark);
+}
+
+.cardPokemon.fighting {
+    background: var(--fighting);
+}
+
+.cardPokemon.poison {
+    background: var(--poison);
+}
+
+.cardPokemon.rock {
+    background: var(--rock);
+}
+
+.cardPokemon.ground {
+    background: var(--ground);
+}
+
+.cardPokemon.fire .types > span {
+    background-color: var(--fogoClaro);
+}
+
+.cardPokemon.grass .types > span {
+    background-color: var(--plantaClaro);
+}
+
+.cardPokemon.water .types > span {
+    background-color: var(--aguaClaro);
+}
+
+.cardPokemon.bug .types > span {
+    background-color: var(--insetoClaro);
+}
+
+.cardPokemon.normal .types > span {
+    background-color: var(--normalClaro);
+}
+
+.cardPokemon.fairy .types > span {
+    background-color: var(--fadaClaro);
+}
+
+.cardPokemon.dragon .types > span {
+    background-color: var(--dragonClaro);
+}
+
+.cardPokemon.psychic .types > span {
+    background-color: var(--psiquicoClaro);
+}
+
+.cardPokemon.ghost .types > span {
+    background-color: var(--fantasmaClaro);
+}
+
+.cardPokemon.ground .types > span {
+    background-color: var(--terrestreClaro);
+}
+
+.cardPokemon.steel .types > span {
+    background-color: var(--metalClaro);
+}
+
+.cardPokemon.ice .types > span {
+    background-color: var(--geloClaro);
+}
+
+.cardPokemon.electric .types > span {
+    background-color: var(--eletricoClaro);
+}
+
+.cardPokemon.dark .types > span {
+    background-color: var(--darkClaro);
+}
+
+.cardPokemon.fighting .types > span {
+    background-color: var(--lutadorClaro);
+}
+
+.cardPokemon.rock .types > span {
+    background-color: var(--rockClaro);
+}
+
+.cardPokemon.poison .types > span {
+    background-color: var(--venenosoClaro);
+}
+
+/* Background dos tipos de pokemons */
+
+.backgroundPokemon.grass {
+    background: url('../global/image/grass.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.fire {
+    background: url('../global/image/fire.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.water {
+    background: url('../global/image/water.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.bug {
+    background: url('../global/image/bug.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.bug {
+    background: url('../global/image/bug.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.fighting {
+    background: url('../global/image/fighting.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.ground {
+    background: url('../global/image/ground.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.rock {
+    background: url('../global/image/rock.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.fairy {
+    background: url('../global/image/fairy.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.flying {
+    background: url('../global/image/flying.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.electric {
+    background: url('../global/image/electric.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.normal {
+    background: url('../global/image/normal.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.poison {
+    background: url('../global/image/poison.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.psychic {
+    background: url('../global/image/psychic.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.dark {
+    background: url('../global/image/dark.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.ghost {
+    background: url('../global/image/ghost.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.ice {
+    background: url('../global/image/ice.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.dragon {
+    background: url('../global/image/dragon.jpg') center / cover no-repeat;
+}
+
+.backgroundPokemon.steel {
+    background: url('../global/image/steel.jpg') center / cover no-repeat;
+}

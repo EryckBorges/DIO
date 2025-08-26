@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="./global/css/style.css">
+    <link rel="stylesheet" href="./css/styleForPokemons.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/pokeApi.js" defer></script>
+    <script src="./js/script.js" defer></script>
+</head>
+<body>
+    <header class="center over width"> 
+        <div class="center over pokeballHeader width">
+            <img src="./element/Hearder.svg" draggable="false" alt="Metade de uma Pokebola">
+        </div>
+        <div class="center over btnHeader width">
+            <button type="button" class="center over button btnMenu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <input type="search" class="center over inputSearch">
+            <button type="button" class="center over button btnSearch">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </div>
+    </header>
+    <main class="center over width">   
+        <section class="filters center over">
+            <div class="center over filter">
+                <div class="center over column">
+                    <span>Região</span>
+                    <select name="filter" id="filter" class="center over width">
+                        <option value="0">Kanto</option>
+                        <option value="1">Johto</option>
+                        <option value="2">Hoenn</option>
+                        <option value="3">Sinnoh</option>
+                        <option value="4">Unova</option>
+                        <option value="5">Kalos</option>
+                        <option value="6">Alola</option>
+                        <option value="7">Galar</option>
+                        <option value="8">Paldea</option>
+                    </select>
+                </div>
+                <div class="center over organizar column">
+                    <span>Organizar Por...</span>
+                    <select name="filter" id="organizar" class="center over width">
+                        <option value="0">Menor Número</option>
+                        <option value="1">Maior Número</option>
+                        <option value="2">A-Z</option>
+                        <option value="3">Z-A</option>
+                    </select>
+                </div>
+            </div>
+            <div class="center over filter">
+                <div class="center over column">
+                    <span>Tipos</span>
+                    <select name="filter" id="filter" class="center over width">
+                        <option value="0">Normal</option>
+                        <option value="1">Fogo (Fire)</option>
+                        <option value="2">Água (Water)</option>
+                        <option value="3">Grama (Grass)</option>
+                        <option value="4">Elétrico (Electric)</option>
+                        <option value="5">Gelo (Ice)</option>
+                        <option value="6">Lutador (Fighting)</option>
+                        <option value="7">Voador (Flying)</option>
+                        <option value="8">Veneno (Poison)</option>
+                        <option value="9">Terra (Ground)</option>
+                        <option value="10">Pedra (Rock)</option>
+                        <option value="11">Psíquico (Psychic)</option>
+                        <option value="12">Inseto (Bug)</option>
+                        <option value="13">Fantasma (Ghost)</option>
+                        <option value="14">Aço (Steel)</option>
+                        <option value="15">Dragão (Dragon)</option>
+                        <option value="16">Sombrio (Dark)</option>
+                        <option value="17">Fada (Fairy)</option>
+                    </select>
+                </div>
+                <div class="center over organizar column">
+                    <span>Formas</span>
+                    <select name="filter" id="organizar" class="center over width">
+                        <option value="2">Menor Número</option>
+                        <option value="3">Maior Número</option>
+                        <option value="0">A-Z</option>
+                        <option value="1">Z-A</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <section class="center over pokemons">
+            <div class="center over linePokemon"></div>
+        </section>
+        <button class="center over buttonMore button">
+            <img src="../element/pokeball.png" draggable="false" alt="Button more Pokemons">
+            Carregar mais
+        </button>
+    </main>
+    <section class="detailsPokemon center over animate__animated width height">
+        
+    </section>
+    <footer class="footer width center over">
+
+    </footer>
+</body>
+</html>

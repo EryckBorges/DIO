@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: inter;
+    user-select: none;
+}
+
+:root {
+    
+    --grass: url('../../element/planta.svg') center / cover no-repeat;
+    --fire: url('../../element/fogo.svg') center / cover no-repeat;
+    --water: url('../../element/agua.svg') center / cover no-repeat;
+    --bug: url('../../element/inseto.svg') center / cover no-repeat;
+    --fairy: url('../../element/fada.svg') center / cover no-repeat;
+    --normal: url('../../element/normal.svg') center / cover no-repeat;
+    --dragon: url('../../element/dragon.svg') center / cover no-repeat;
+    --psychic: url('../../element/psiquico.svg') center / cover no-repeat;
+    --ghost: url('../../element/fantasma.svg') center / cover no-repeat;
+    --steel: url('../../element/metal.svg') center / cover no-repeat;
+    --flying: url('../../element/voador.svg') center / cover no-repeat;
+    --ice: url('../../element/gelo.svg') center / cover no-repeat;
+    --electric: url('../../element/eletrico.svg') center / cover no-repeat;
+    --dark: url('../../element/dark.svg') center / cover no-repeat;
+    --fighting: url('../../element/lutador.svg') center / cover no-repeat;
+    --poison: url('../../element/venenoso.svg') center / cover no-repeat;
+    --rock: url('../../element/rock.svg') center / cover no-repeat;
+    --ground: url('../../element/terrestre.svg') center / cover no-repeat;
+    --plantaClaro: #789D70;
+    --fogoClaro: #D65645;
+    --aguaClaro: #68AAF5;
+    --insetoClaro: #B9F441;
+    --fadaClaro: #F9759B;
+    --normalClaro: #C0C0C0;
+    --dragonClaro: #4597DB;
+    --psiquicoClaro: #F9759B;
+    --fantasmaClaro: #C0C0C0;
+    --terrestreClaro: #FDA071;
+    --metalClaro: #83AEBE;
+    --geloClaro: #8CFFF0;
+    --eletricoClaro: #F6D947;
+    --darkClaro: #404040;
+    --lutadorClaro: #404040;
+    --venenosoClaro: #8D3FA6;
+    --rockClaro: #968864;
+    --branco: #ffffff;
+    --preto: #000000;
+    --vermelho: #ff0000;
+    --cinza: #dfdede;
+    --cinzaText: #373737;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.over {
+    overflow: hidden;
+}
+
+.height {
+    height: 100%;
+}
+
+.width {
+    width: 100% !important;
+}
+
+.button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.main {
+    flex-direction: column !important;
+}
+
+.footer {
+    background-color: var(--preto);
+    height: 60vh;
+    margin-top: 20px;
+}
