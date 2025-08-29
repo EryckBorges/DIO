@@ -202,57 +202,88 @@ organizar.addEventListener('change', () => {
     } 
 });
 
+// Filtro através de pesquisa por nome ou id de pokemon
+
 const searchPokemonInput = document.querySelector('.inputSearch');
+const searchPokemonButton = document.querySelector('.btnSearch');
 
 const filterSearch = (searchPokemon) => {
-    console.log(searchPokemon);
     linePokemon.innerHTML = ''
+
+    // Verifica se tem algo na pesquisa
 
     if (!searchPokemon) {
         verificaGeracao(geracaoAtual);
         return;
     }
 
+    // Url para pegar todos os pokemons que existem e muito mais
+
     const urlAllPokemons = 'https://pokeapi.co/api/v2/pokemon-species/?offset=0&limit=3000';
+
     fetch(urlAllPokemons)
         .then((results) => results.json()) 
         .then((jsonDetailsAllPokemon) => {
             const allPokemons = jsonDetailsAllPokemon;
-            
-            const listAllPokemons = allPokemons.results
-            .map(poke => poke.name)
-            .filter(poke => poke.startsWith(`${searchPokemon}`))
-            .sort((a, b) => a.localeCompare(b));
-
-            if (listAllPokemons.length == 0) {
-                const notFound = document.querySelector('.notFound');
-                notFound.classList.add('open');
-                btnMorePokemons.style.display = 'none';
-                setTimeout(() => {
-                    searchPokemonInput.value = '';
-                    notFound.classList.remove('open');
-                    verificaGeracao(geracaoAtual);
-                    btnMorePokemons.style.display = 'flex';
-                }, 2000);
-            }
-
-            for(let indice = 0; indice < listAllPokemons.length; indice++){
-                const listAllPokemonsUrl = `https://pokeapi.co/api/v2/pokemon/${listAllPokemons[indice]}/`
                 
-                fetch(listAllPokemonsUrl)
-                    .then((resultsUrl) => resultsUrl.json())
-                    .then((jsonResultsUrl) => {
-                    
-                        const cardSearchPokemon = constructorNewPokemon(jsonResultsUrl);
-                        linePokemon.appendChild(cardSearchPokemon)
-                    })
+            const verificarSearch = () => {
+                if (!isNaN(searchPokemon)) {
+                    const listAllPokemons = allPokemons.results[searchPokemon - 1];
+                    const listAllPokemonsUrl = `https://pokeapi.co/api/v2/pokemon/${listAllPokemons.name}/`
+
+                    fetch(listAllPokemonsUrl)
+                        .then((resultsUrl) => resultsUrl.json())
+                        .then((jsonResultsUrl) => {
+                            const cardSearchPokemon = constructorNewPokemon(jsonResultsUrl);
+                            linePokemon.appendChild(cardSearchPokemon)
+                        })
+                }else {
+                    const listAllPokemons = allPokemons.results
+                    .map(poke => poke.name)
+                    .filter(poke => poke.startsWith(`${searchPokemon}`))
+                    .sort((a, b) => a.localeCompare(b));
+                
+                    if (listAllPokemons.length == 0) {
+                        const notFound = document.querySelector('.notFound');
+                        notFound.classList.add('open');
+                        btnMorePokemons.style.display = 'none';
+                        setTimeout(() => {
+                            searchPokemonInput.value = '';
+                            notFound.classList.remove('open');
+                            verificaGeracao(geracaoAtual);
+                            btnMorePokemons.style.display = 'flex';
+                        }, 2000);
+                    }
+
+                    for(let indice = 0; indice <= listAllPokemons.length; indice++){
+                        const listAllPokemonsUrl = `https://pokeapi.co/api/v2/pokemon/${listAllPokemons[indice]}/`
+                        
+                        fetch(listAllPokemonsUrl)
+                            .then((resultsUrl) => resultsUrl.json())
+                            .then((jsonResultsUrl) => {
+                                const cardSearchPokemon = constructorNewPokemon(jsonResultsUrl);
+                                linePokemon.appendChild(cardSearchPokemon)
+                            })
+                    }
+                }
             }
+
+            verificarSearch();
+            
         })
 }
 
 verificaGeracao(geracaoAtual);
 
+// Pesquisa quando preciona o enter
+
 searchPokemonInput.addEventListener('search', () => { 
+    filterSearch(searchPokemonInput.value)
+})
+
+// Click do botão para pesquisar
+
+searchPokemonButton.addEventListener('click', () => { 
     filterSearch(searchPokemonInput.value)
 })
 
