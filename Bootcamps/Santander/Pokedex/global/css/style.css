@@ -10,24 +10,24 @@
 
 :root {
     
-    --grass: url('../../element/planta.svg') center / cover no-repeat;
-    --fire: url('../../element/fogo.svg') center / cover no-repeat;
-    --water: url('../../element/agua.svg') center / cover no-repeat;
-    --bug: url('../../element/inseto.svg') center / cover no-repeat;
-    --fairy: url('../../element/fada.svg') center / cover no-repeat;
-    --normal: url('../../element/normal.svg') center / cover no-repeat;
-    --dragon: url('../../element/dragon.svg') center / cover no-repeat;
-    --psychic: url('../../element/psiquico.svg') center / cover no-repeat;
-    --ghost: url('../../element/fantasma.svg') center / cover no-repeat;
-    --steel: url('../../element/metal.svg') center / cover no-repeat;
-    --flying: url('../../element/voador.svg') center / cover no-repeat;
-    --ice: url('../../element/gelo.svg') center / cover no-repeat;
-    --electric: url('../../element/eletrico.svg') center / cover no-repeat;
-    --dark: url('../../element/dark.svg') center / cover no-repeat;
-    --fighting: url('../../element/lutador.svg') center / cover no-repeat;
-    --poison: url('../../element/venenoso.svg') center / cover no-repeat;
-    --rock: url('../../element/rock.svg') center / cover no-repeat;
-    --ground: url('../../element/terrestre.svg') center / cover no-repeat;
+    --grass: url('../element/planta.svg') center / cover no-repeat;
+    --fire: url('../element/fogo.svg') center / cover no-repeat;
+    --water: url('../element/agua.svg') center / cover no-repeat;
+    --bug: url('../element/inseto.svg') center / cover no-repeat;
+    --fairy: url('../element/fada.svg') center / cover no-repeat;
+    --normal: url('../element/normal.svg') center / cover no-repeat;
+    --dragon: url('../element/dragon.svg') center / cover no-repeat;
+    --psychic: url('../element/psiquico.svg') center / cover no-repeat;
+    --ghost: url('../element/fantasma.svg') center / cover no-repeat;
+    --steel: url('../element/metal.svg') center / cover no-repeat;
+    --flying: url('../element/voador.svg') center / cover no-repeat;
+    --ice: url('../element/gelo.svg') center / cover no-repeat;
+    --electric: url('../element/eletrico.svg') center / cover no-repeat;
+    --dark: url('../element/dark.svg') center / cover no-repeat;
+    --fighting: url('../element/lutador.svg') center / cover no-repeat;
+    --poison: url('../element/venenoso.svg') center / cover no-repeat;
+    --rock: url('../element/rock.svg') center / cover no-repeat;
+    --ground: url('../element/terrestre.svg') center / cover no-repeat;
     --plantaClaro: #789D70;
     --fogoClaro: #D65645;
     --aguaClaro: #68AAF5;
@@ -88,4 +88,98 @@
     background-color: var(--preto);
     height: 60vh;
     margin-top: 20px;
+}
+
+.menu {
+    display: none;
+    flex-direction: column;
+    width: 90%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background: url('../../global/image/menu.png') center / cover no-repeat;
+    justify-content: baseline !important;
+    align-items: baseline !important;
+}
+
+.menu.activeMenu {
+    display: flex;
+}
+
+.headerMenu {
+    height: 10%;
+    width: 92%;
+    position: relative;
+}
+
+.headerMenu > img, .headerMenu > button {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.headerMenu > img {
+    left: 2vw;
+}
+
+.headerMenu > button {
+    right: 2vw;
+}
+
+.headerMenu > button > span {
+    font-size: 2em;
+}
+
+.topicosMenu {
+    width: 92%;
+    height: 90%;
+    padding-block: 20px;
+    align-items: baseline !important;
+    justify-content: left !important;
+}
+
+.topicosMenu > ul {
+    flex-direction: column;
+    justify-content: baseline !important;
+    align-items: baseline !important;
+    gap: 10px;
+    width: 100%;
+} 
+
+.topicosMenu > ul > li {
+    margin-inline: 20px;
+    list-style: none;
+}
+
+.topicosMenu > ul > li > ul {
+    margin-left: 40px;
+    color: var(--branco);
+    font-size: 1em;
+}
+
+.topicMenu {
+    font-size: 1em;
+    color: var(--preto);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.notFound {
+    display: none;
+    width: 90% !important;
+    height: 50vh;
+    margin-block: 20px;
+}
+
+.notFound.open {
+    display: flex;
+    border: 1px ;
+}
+
+.notFound > img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
 }

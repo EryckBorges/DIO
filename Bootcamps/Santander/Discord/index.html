@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clone Layout — Discord</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#404EED;            /* hero */
+      --ink:#23272A;           /* texto escuro */
+      --ink-2:#2C2F33;         /* bg escuro */
+      --muted:#99AAB5;         /* texto secundário */
+      --white:#fff; 
+      --btn:#5865F2;           /* botão principal */
+      --btn-2:#23272A;         /* botão dark */
+      --rounded: 16px;
+      --container: 1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--ink);}    
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    /* Layout util */
+    .container{max-width:var(--container); margin-inline:auto; padding:0 20px}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:14px 20px; border-radius:999px; font-weight:600; border:0; cursor:pointer}
+    .btn.primary{background:var(--white); color:var(--ink)}
+    .btn.dark{background:var(--ink); color:var(--white)}
+    .btn.brand{background:var(--btn); color:var(--white)}
+    .btn svg{width:20px; height:20px}
+    .tag{display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; background:#e8e9ff; color:#3730a3; font-weight:700}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; background:transparent; transition:.3s;
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 0; color:#fff;
+    }
+    .nav a{opacity:.95; font-weight:600}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800}
+    .brand svg{width:28px; height:28px}
+    .nav-links{display:flex; gap:22px; align-items:center}
+    .menu-btn{display:none; background:transparent; border:0; color:#fff}
+
+    /* Mobile menu */
+    .mobile{display:none; position:fixed; inset:0; background:rgba(0,0,0,.5)}
+    .sheet{position:absolute; inset:0 0 auto 0; background:#222; color:#fff; padding:20px; border-bottom-left-radius:16px; border-bottom-right-radius:16px}
+    .mobile a{display:block; padding:12px 8px}
+
+    /* Hero */
+    .hero{background:var(--bg); color:#fff; position:relative; overflow:hidden}
+    .hero .wrap{display:grid; grid-template-columns: 1.2fr .8fr; gap:32px; align-items:center; padding:96px 0}
+    .hero h1{font-size:48px; line-height:1.05; margin:0 0 16px; font-weight:800}
+    .hero p{font-size:18px; opacity:.95; margin:0 0 28px}
+    .hero-art{min-height:320px; background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,0)); border-radius:var(--rounded); transform:skewY(-2deg)}
+
+    /* Sections */
+    section{padding:80px 0}
+    .split{display:grid; grid-template-columns: 1fr 1fr; gap:40px; align-items:center}
+    .split h2{font-size:40px; margin:0 0 12px}
+    .split p{font-size:18px; color:#4b5563}
+
+    .feature-grid{display:grid; grid-template-columns: repeat(3, 1fr); gap:20px}
+    .card{background:#f6f7fb; border-radius:var(--rounded); padding:24px}
+    .card h3{margin:0 0 8px}
+
+    .cta{background:#f6f7fb; border-radius:var(--rounded); text-align:center; padding:64px}
+    .cta h3{font-size:36px; margin:0 0 16px}
+
+    /* Footer */
+    footer{background:var(--ink-2); color:#c9d1d9; padding:60px 0}
+    .foot-top{display:grid; grid-template-columns: 1.2fr .8fr .8fr .8fr; gap:24px}
+    .foot-col h4{margin:0 0 12px; color:#fff}
+    .foot-col a{display:block; padding:6px 0; font-size:14px; opacity:.9}
+    .foot-bottom{display:flex; align-items:center; justify-content:space-between; gap:20px; margin-top:30px; padding-top:16px; border-top:1px solid rgba(255,255,255,.1)}
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .hero .wrap{grid-template-columns:1fr}
+      .feature-grid{grid-template-columns:1fr 1fr}
+      .foot-top{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 720px){
+      .nav-links{display:none}
+      .menu-btn{display:inline-flex}
+      .feature-grid{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .hero h1{font-size:38px}
+    }
+    /* Header on scroll */
+    .scrolled{background:var(--bg)}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="hdr">
+    <div class="container nav">
+      <a class="brand" href="#">
+        <!-- Logo placeholder -->
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.8 6.4c-.9-.4-1.9-.7-2.9-.8l-.2.5c.9.1 1.7.3 2.5.7-.9-.5-1.9-.8-3-.8s-2.1.3-3 .8c.8-.4 1.6-.6 2.5-.7l-.2-.5c-1 .1-2 .4-2.9.8-1.3 2-2.1 4.3-2.1 6.8 1.1 1.2 2.6 2.1 4.3 2.6.3-.4.6-.9.8-1.4-.5-.2-1-.5-1.5-.8.1-.1.2-.1.3-.2.9.4 1.8.6 2.8.6s1.9-.2 2.8-.6l.3.2c-.5.3-1 .6-1.5.8.2.5.5 1 .8 1.4 1.7-.5 3.2-1.4 4.3-2.6 0-2.5-.8-4.8-2.1-6.8z"/></svg>
+        <span>Discord</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#">Baixar</a>
+        <a href="#">Nitro</a>
+        <a href="#">Descobrir</a>
+        <a href="#">Segurança</a>
+        <a href="#">Suporte</a>
+      </nav>
+      <div class="actions">
+        <a class="btn primary" href="#">
+          <!-- ícone download -->
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 011 1v9.59l2.3-2.3a1 1 0 111.4 1.42l-4 4a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.42L11 13.59V4a1 1 0 011-1zM5 20a1 1 0 110-2h14a1 1 0 110 2H5z"/></svg>
+          Baixar para Windows
+        </a>
+        <button class="menu-btn" id="openMenu" aria-label="Abrir menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile" id="mobileMenu" hidden>
+    <div class="sheet container">
+      <a href="#">Baixar</a>
+      <a href="#">Nitro</a>
+      <a href="#">Descobrir</a>
+      <a href="#">Segurança</a>
+      <a href="#">Suporte</a>
+      <button class="btn brand" id="closeMenu" style="margin-top:12px">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container wrap hero wrap">
+      <div>
+        <span class="tag">O lugar para falar</span>
+        <h1>Imagine um lugar…</h1>
+        <p>…onde você possa pertencer a um clube escolar, um grupo de gamers ou uma comunidade mundial. Onde é fácil conversar todos os dias e se ver com mais frequência.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap">
+          <a class="btn primary" href="#">Baixar para Windows</a>
+          <a class="btn dark" href="#">Abra o Discord no seu navegador</a>
+        </div>
+      </div>
+      <div class="hero-art"></div>
+    </div>
+  </section>
+
+  <!-- Section: Comunidades -->
+  <section>
+    <div class="container split">
+      <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=60" alt="Canais organizados" style="border-radius: var(--rounded);">
+      <div>
+        <h2>Crie um espaço controlado por convite</h2>
+        <p>Servidores organizam conversas em canais por assunto. Colabore, fale de rotina ou compartilhe momentos sem bagunça.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Voz e vídeo -->
+  <section style="background:#f6f7fb">
+    <div class="container split">
+      <div>
+        <h2>De sessões rápidas a encontros épicos</h2>
+        <p>Entre em um canal de voz quando estiver livre. Amigos verão que você está online e podem entrar para conversar instantaneamente.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=900&q=60" alt="Voz e vídeo" style="border-radius: var(--rounded);">
+    </div>
+  </section>
+
+  <!-- Features grid -->
+  <section>
+    <div class="container">
+      <div class="feature-grid">
+        <div class="card">
+          <h3>Moderação poderosa</h3>
+          <p>Ferramentas para manter sua comunidade segura e saudável.</p>
+        </div>
+        <div class="card">
+          <h3>Bots e integrações</h3>
+          <p>Automatize tarefas, jogue e modere com extensões populares.</p>
+        </div>
+        <div class="card">
+          <h3>Personalização</h3>
+          <p>Crie papéis, permissões e canais do seu jeito.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA download -->
+  <section>
+    <div class="container cta">
+      <h3>Pronto para começar a sua comunidade?</h3>
+      <p style="margin:0 0 22px">Baixe o aplicativo e entre no seu novo lugar favorito.</p>
+      <a class="btn brand" href="#">Baixar</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="foot-top">
+        <div>
+          <h3 style="margin:0 0 8px; color:#fff">Discord</h3>
+          <p style="margin:0; color:#aab3bd">Clone de estudo — substitua textos e assets.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Produto</h4>
+          <a href="#">Baixar</a>
+          <a href="#">Status</a>
+          <a href="#">Diretrizes</a>
+        </div>
+        <div class="foot-col">
+          <h4>Companhia</h4>
+          <a href="#">Sobre</a>
+          <a href="#">Trabalho</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="foot-col">
+          <h4>Recursos</h4>
+          <a href="#">Suporte</a>
+          <a href="#">Segurança</a>
+          <a href="#">Termos</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <a class="brand" href="#" style="color:#fff">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.8 6.4c-.9-.4-1.9-.7-2.9-.8l-.2.5c.9.1 1.7.3 2.5.7-.9-.5-1.9-.8-3-.8s-2.1.3-3 .8c.8-.4 1.6-.6 2.5-.7l-.2-.5c-1 .1-2 .4-2.9.8-1.3 2-2.1 4.3-2.1 6.8 1.1 1.2 2.6 2.1 4.3 2.6.3-.4.6-.9.8-1.4-.5-.2-1-.5-1.5-.8.1-.1.2-.1.3-.2.9.4 1.8.6 2.8.6s1.9-.2 2.8-.6l.3.2c-.5.3-1 .6-1.5.8.2.5.5 1 .8 1.4 1.7-.5 3.2-1.4 4.3-2.6 0-2.5-.8-4.8-2.1-6.8z"/></svg>
+          <span>Discord</span>
+        </a>
+        <a class="btn brand" href="#">Abrir Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header background ao rolar
+    const hdr = document.getElementById('hdr');
+    addEventListener('scroll', () => {
+      if (window.scrollY > 10) hdr.classList.add('scrolled'); else hdr.classList.remove('scrolled');
+    });
+
+    // Menu mobile
+    const mobile = document.getElementById('mobileMenu');
+    const openMenu = document.getElementById('openMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    openMenu?.addEventListener('click', ()=>{ mobile.hidden = false; });
+    closeMenu?.addEventListener('click', ()=>{ mobile.hidden = true; });
+    mobile?.addEventListener('click', (e)=>{ if(e.target === mobile){ mobile.hidden = true; } });
+  </script>
+</body>
+</html>

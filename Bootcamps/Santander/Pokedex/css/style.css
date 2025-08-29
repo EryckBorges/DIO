@@ -61,6 +61,7 @@ main {
 .pokemons {
     width: 95%;
     height: auto;
+    flex-direction: column;
 }
 
 .linePokemon {

@@ -27,6 +27,8 @@ let typesPokemons = (types) => {
 // Função para adicionar o pokemon na tela
 
 const constructorNewPokemon = (pokemon) => {  
+    console.log(pokemon);
+    
     const div = document.createElement('div');    
     div.classList.add("center", "over", "cardPokemon", `${pokemon.types[0].type.name}`, `cardPokemon${pokemon.id}`, "animate__animated", "animate__zoomIn")
 
@@ -83,8 +85,6 @@ const verificaGeracao = (geracaoAtual) => {
     loadPokemon(offset, limit)
 }
 
-verificaGeracao(geracaoAtual);
-
 // Ao clicar no botão a pagina adiciona mais pokemons
 
 btnMorePokemons.addEventListener('click', () => {
@@ -106,7 +106,6 @@ btnMorePokemons.addEventListener('click', () => {
 
 const filterRegiao = document.querySelector('#filter');
 const organizar = document.querySelector("#organizar");
-const cardPokemon = document.querySelector('.cardPokemon1')
 
 filterRegiao.addEventListener('change', () => {
     let valueRegiao = Number(filterRegiao.value)
@@ -169,7 +168,7 @@ filterRegiao.addEventListener('change', () => {
         default:
             break;
     } 
-})
+});
     
 organizar.addEventListener('change', () => {
     let valueOrganizar = Number(organizar.value)
@@ -201,6 +200,60 @@ organizar.addEventListener('change', () => {
         default:
             break;
     } 
+});
+
+const searchPokemonInput = document.querySelector('.inputSearch');
+
+const filterSearch = (searchPokemon) => {
+    console.log(searchPokemon);
+    linePokemon.innerHTML = ''
+
+    if (!searchPokemon) {
+        verificaGeracao(geracaoAtual);
+        return;
+    }
+
+    const urlAllPokemons = 'https://pokeapi.co/api/v2/pokemon-species/?offset=0&limit=3000';
+    fetch(urlAllPokemons)
+        .then((results) => results.json()) 
+        .then((jsonDetailsAllPokemon) => {
+            const allPokemons = jsonDetailsAllPokemon;
+            
+            const listAllPokemons = allPokemons.results
+            .map(poke => poke.name)
+            .filter(poke => poke.startsWith(`${searchPokemon}`))
+            .sort((a, b) => a.localeCompare(b));
+
+            if (listAllPokemons.length == 0) {
+                const notFound = document.querySelector('.notFound');
+                notFound.classList.add('open');
+                btnMorePokemons.style.display = 'none';
+                setTimeout(() => {
+                    searchPokemonInput.value = '';
+                    notFound.classList.remove('open');
+                    verificaGeracao(geracaoAtual);
+                    btnMorePokemons.style.display = 'flex';
+                }, 2000);
+            }
+
+            for(let indice = 0; indice < listAllPokemons.length; indice++){
+                const listAllPokemonsUrl = `https://pokeapi.co/api/v2/pokemon/${listAllPokemons[indice]}/`
+                
+                fetch(listAllPokemonsUrl)
+                    .then((resultsUrl) => resultsUrl.json())
+                    .then((jsonResultsUrl) => {
+                    
+                        const cardSearchPokemon = constructorNewPokemon(jsonResultsUrl);
+                        linePokemon.appendChild(cardSearchPokemon)
+                    })
+            }
+        })
+}
+
+verificaGeracao(geracaoAtual);
+
+searchPokemonInput.addEventListener('search', () => { 
+    filterSearch(searchPokemonInput.value)
 })
 
 class ShowPokemonDetails {
@@ -212,7 +265,7 @@ class ShowPokemonDetails {
     addTypePokemon(types) {
         return types.map((typesForPokemons) => `
             <div class="center over column type">
-                <img src="../element/types/${typesForPokemons.type.name}.ico" draggable="false" alt="Icone ${typesForPokemons.type.name}">
+                <img src="./element/types/${typesForPokemons.type.name}.ico" draggable="false" alt="Icone ${typesForPokemons.type.name}">
                 <span>
                     ${typesForPokemons.type.name.charAt(0).toUpperCase() + typesForPokemons.type.name.slice(1)}
                 </span>
@@ -434,3 +487,21 @@ class ShowPokemonDetails {
     }
 }
 
+// Setor responsavel pela abertura e fechamento do menu
+
+const btnMenu = document.querySelector('.btnMenu');
+const closeMenu = document.querySelector('.closeMenu');
+const menu = document.querySelector('.menu');
+
+btnMenu.addEventListener('click', () => {
+    menu.classList.remove('animate__slideOutLeft');
+    menu.classList.add('activeMenu', 'animate__animated', 'animate__slideInLeft');
+})
+
+closeMenu.addEventListener('click', () => {
+    menu.classList.remove('animate__slideInLeft');
+    menu.classList.add('animate__slideOutLeft')
+   setTimeout(() => {
+        menu.classList.remove('activeMenu');
+   }, 1000);
+})
