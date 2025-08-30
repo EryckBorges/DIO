@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Clone</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    .search-bar {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      max-width: 600px;
+    }
+
+    .search-bar input {
+      width: 80%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 2px 0 0 2px;
+    }
+
+    .search-bar button {
+      padding: 8px 16px;
+      border: 1px solid #ddd;
+      border-left: none;
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    /* CONTEÚDO */
+    main {
+      display: flex;
+      margin: 20px;
+      gap: 20px;
+    }
+
+    /* VIDEO PRINCIPAL */
+    .video-section {
+      flex: 2;
+    }
+
+    .video-player {
+      width: 100%;
+      height: 400px;
+      background: #000;
+    }
+
+    .video-info {
+      margin-top: 10px;
+    }
+
+    .video-info h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .channel-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 15px 0;
+    }
+
+    .channel-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .channel-left img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .subscribe-btn {
+      background: red;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 2px;
+    }
+
+    .video-actions {
+      display: flex;
+      gap: 15px;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      flex: 1;
+    }
+
+    .sidebar h3 {
+      margin-bottom: 10px;
+    }
+
+    .video-card {
+      display: flex;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .video-card img {
+      width: 160px;
+      height: 90px;
+      object-fit: cover;
+    }
+
+    .video-card div {
+      font-size: 14px;
+    }
+
+    .video-card div p {
+      color: #555;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Logo">
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar">
+      <button>🔍</button>
+    </div>
+
+    <div class="icons">
+      <span>🔔</span>
+      <span>👤</span>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- VIDEO SECTION -->
+    <div class="video-section">
+      <div class="video-player"></div>
+
+      <div class="video-info">
+        <h2>Semana Frontend | Dia 01: Construindo uma Landing Page divertida com HTML e CSS</h2>
+
+        <div class="channel-info">
+          <div class="channel-left">
+            <img src="https://yt3.googleusercontent.com/ytc/AGIKgqO5exx1k.png" alt="Canal">
+            <div>
+              <strong>DIO</strong><br>
+              833 mil inscritos
+            </div>
+          </div>
+          <button class="subscribe-btn">INSCREVA-SE</button>
+        </div>
+
+        <div class="video-actions">
+          <span>👍 2 mil</span>
+          <span>👎 Não gostei</span>
+          <span>🔗 Compartilhar</span>
+          <span>⬇️ Download</span>
+        </div>
+
+        <p>28.418 visualizações • Transmitido ao vivo em 23 ago. de 2022</p>
+        <p>
+          Inicie uma aventura imersiva no mundo do Front-end com HTML e CSS. Para isso,
+          criaremos uma landing page com a temática de Stranger Things.
+        </p>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="video-card">
+        <img src="https://i.ytimg.com/vi/2Ji-clqUYnA/hqdefault.jpg" alt="">
+        <div>
+          <strong>Geração Tech Unimed - BH | Ciência de Dados</strong>
+          <p>21 mil visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <img src="https://i.ytimg.com/vi/E7wJTI-1dvQ/hqdefault.jpg" alt="">
+        <div>
+          <strong>Scrum Talks</strong>
+          <p>1,7 mil visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <img src="https://i.ytimg.com/vi/k3R9u5znNzk/hqdefault.jpg" alt="">
+        <div>
+          <strong>Machine Learning Avançado - Fast Track</strong>
+          <p>17 mil visualizações</p>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+</body>
+</html>
